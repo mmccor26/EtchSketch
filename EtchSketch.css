@@ -1,16 +1,21 @@
 #container{
     height: 75%;
     width: 75%;
+    display: flex;
+    
     position: relative;
     margin: 0 auto;
+    align-items: stretch;
+   
    
 
 }
 .gridsquare{
-  
+   flex-grow: 1;
 }
 .row{
-    display: inline-block;
-    width: 10%;
+    flex: 1;
+    
+    
     
 }

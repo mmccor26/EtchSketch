@@ -1,23 +1,54 @@
 
 
- function createDivGrid(v){ 
+function createDivGrid(v){ 
     var total = 1;
-    var e = document.getElementById('container')
-    for(var i = 0; i < v/2; i++){ 
+    var e = document.getElementById('container');
+    for(var i = 0; i < v; i++){ 
       var row = document.createElement("div"); 
       row.className = "row"; 
-      for(var x = 1; x <= 2*v; x++){ 
-          var cell = document.createElement("div"); 
+      //row.style.height = e.style.height/v;
+      for(var x = 1; x <= v; x++){ 
+        
+          var cell = document.createElement("div");
+           
           cell.className = "gridsquare"; 
           cell.innerText = total;
           row.appendChild(cell); 
-          total++;
-      } 
-      e.appendChild(row); 
-      
-      
-    } 
+        total++;   
+  } 
+    e.appendChild(row); 
+        
+}
+} 
    
+var e = document.getElementById('body');
+var clearBtn = document.createElement("button");
 
-  }
-createDivGrid(16);
+
+clearBtn.innerHTML = "Clear";
+clearBtn.addEventListener('click', (e)=>{
+  clearGrid(gridElements);
+});
+e.append(clearBtn);
+
+createDivGrid(32);
+const gridElements = document.querySelectorAll(".gridsquare");
+
+gridElements.forEach(gridElement => {
+  gridElement.addEventListener('mouseover',(e) =>{
+    hovercolor(gridElement);
+  });
+  
+});
+
+function clearGrid(gridElements){
+  gridElements.forEach(gridElement =>{
+    gridElement.style.backgroundColor = "white";
+  });
+}
+
+function hovercolor(element){
+
+  element.style.backgroundColor = "black";
+}
+
