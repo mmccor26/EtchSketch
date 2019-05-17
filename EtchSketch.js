@@ -23,6 +23,7 @@ function createDivGrid(v){
    
 var e = document.getElementById('body');
 var clearBtn = document.createElement("button");
+var container = document.getElementById('container');
 
 
 clearBtn.innerHTML = "Clear";
@@ -45,6 +46,12 @@ function clearGrid(gridElements){
   gridElements.forEach(gridElement =>{
     gridElement.style.backgroundColor = "white";
   });
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  dimensions = prompt("Enter new grid dimensions");
+
+  createDivGrid(dimensions);
 }
 
 function hovercolor(element){
