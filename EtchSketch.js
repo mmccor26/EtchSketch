@@ -7,12 +7,12 @@ function createDivGrid(v){
       var row = document.createElement("div"); 
       row.className = "row"; 
       //row.style.height = e.style.height/v;
-      for(var x = 1; x <= v; x++){ 
-        
+      for(var x = 1; x <= v; x++){
           var cell = document.createElement("div");
-           
           cell.className = "gridsquare"; 
           cell.innerText = total;
+          cell.style.borderRadius = 2;
+          cell.style.borderBottomColor = "black";
           row.appendChild(cell); 
         total++;   
   } 
@@ -33,7 +33,7 @@ clearBtn.addEventListener('click', (e)=>{
 e.append(clearBtn);
 
 createDivGrid(32);
-const gridElements = document.querySelectorAll(".gridsquare");
+var gridElements = document.querySelectorAll(".gridsquare");
 
 gridElements.forEach(gridElement => {
   gridElement.addEventListener('mouseover',(e) =>{
@@ -52,6 +52,15 @@ function clearGrid(gridElements){
   dimensions = prompt("Enter new grid dimensions");
 
   createDivGrid(dimensions);
+  var gridElements = document.querySelectorAll(".gridsquare");
+
+gridElements.forEach(gridElement => {
+  gridElement.addEventListener('mouseover',(e) =>{
+    hovercolor(gridElement);
+  });
+  
+});
+  
 }
 
 function hovercolor(element){
